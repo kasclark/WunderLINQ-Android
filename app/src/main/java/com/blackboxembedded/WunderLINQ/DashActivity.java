@@ -38,6 +38,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blackboxembedded.WunderLINQ.SVGDashboards.ADVDashboard;
+import com.blackboxembedded.WunderLINQ.SVGDashboards.PortraitDashboard;
 import com.blackboxembedded.WunderLINQ.SVGDashboards.SportDashboard;
 import com.blackboxembedded.WunderLINQ.SVGDashboards.StandardDashboard;
 import com.blackboxembedded.WunderLINQ.Utils.AppUtils;
@@ -60,7 +61,7 @@ public class DashActivity extends AppCompatActivity implements View.OnTouchListe
     private boolean dashUpdateRunning = false;
     private long lastUpdate = 0;
 
-    private int numDashboard = 3;
+    private int numDashboard = 4;
     private int numInfoLine = 4;
     private int currentDashboard = 1;
     private int currentInfoLine = 1;
@@ -354,6 +355,8 @@ public class DashActivity extends AppCompatActivity implements View.OnTouchListe
                         svg = SportDashboard.updateDashboard(currentInfoLine);
                     } else if (currentDashboard == 3){
                         svg = ADVDashboard.updateDashboard(currentInfoLine);
+                    } else if (currentDashboard == 4){
+                        svg = PortraitDashboard.updateDashboard(currentInfoLine);
                     }
                     svg.registerExternalFileResolver(svgFileResolver);
 
